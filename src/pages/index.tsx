@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { signIn, signOut, useSession } from "next-auth/react";
-// import { Todos } from "../components/Todos";
+import Todos from "../components/Todos";
 // import { CreateTodo } from "../components/CreateTodo";
 
 function Home() {
@@ -18,7 +18,7 @@ function Home() {
             <div className="grid grid-cols-1 gap-4 md:gap-8">
               <div className="flex flex-col gap-4 rounded-xl bg-white/10 p-4 text-white">
                 <h3 className="text-xl font-bold">Todos</h3>
-                {/* <Todos /> */}
+                <Todos />
                 {/* <CreateTodo /> */}
               </div>
             </div>
