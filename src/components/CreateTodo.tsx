@@ -7,7 +7,13 @@ import type { Todo } from "../types";
 export default function CreateTodo() {
   const [newTodo, setNewTodo] = useState("");
 
-  const { mutate } = api.todo.create.useMutation();
+  const trpc = api.useContext();
+
+  const { mutate } = api.todo.create.useMutation({
+    onSettled: async () => {
+      await trpc.todo.all.invalidate();
+    },
+  });
 
   return (
     <div>
