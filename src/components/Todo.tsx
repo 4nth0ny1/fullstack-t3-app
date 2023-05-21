@@ -8,6 +8,14 @@ type TodoProps = {
 
 export function Todo({ todo }: TodoProps) {
   const { id, text, done } = todo;
+
+  const trpc = api.useContext();
+
+  const { mutate: doneMutation } = api.todo.toggle.useMutation({
+    onSettled: async () => {
+      await trpc.todo.all.invalidate();
+    },
+  });
   return (
     <div className="flex items-center justify-between gap-2">
       <div className="flex items-center gap-2">
@@ -17,9 +25,9 @@ export function Todo({ todo }: TodoProps) {
           name="done"
           id={id}
           checked={done}
-          //   onChange={(e) => {
-          //     doneMutation({ id, done: e.target.checked });
-          //   }}
+          onChange={(e) => {
+            doneMutation({ id, done: e.target.checked });
+          }}
         />
         <label
           htmlFor={id}

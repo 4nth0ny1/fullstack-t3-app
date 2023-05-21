@@ -48,6 +48,7 @@ FrontEnd
   4. Add markup to the Todo Component
 
 - [x] Create Todos
+
   1. create createTodos.tsx component
   2. install react-hot-toast
   3. add Toaster to \_app.tsx file
@@ -56,8 +57,14 @@ FrontEnd
   6. should get a 200 from the network tab on creation
   7. check the studio it should have todo data
   8. added useContext to add todo to the list on frontend
-- [] Toggle Todo
+
+- [x] Toggle Todo
+
+  1. added doneMutation to the todo
+  2. checked the network tab and the prisma studio and it persists
+
 - [] Delete Todo
+  1.
 - [] Optimistic updates
 
 ---
