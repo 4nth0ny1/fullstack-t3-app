@@ -33,12 +33,18 @@ Backend
 FrontEnd
 
 - [x] Login
+
   1. update the /src/pages/index.tsx page
   2. restart the server
   3. try to login with test email
   4. use the link in the terminal to view protected route
   5. npx prisma studio > to check if the user recorded were saved in the db
+
 - [] List Todos
+  1. create Todos and Todo component
+  2. update types.ts file for Todos type
+  3. import the Todos type to Todo component
+  4. Add markup to the Todo Component
 - [] Create Todos
 - [] Toggle Todo
 - [] Delete Todo
