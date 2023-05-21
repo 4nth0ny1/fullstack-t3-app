@@ -6,7 +6,11 @@ Steps
 
 Backend
 
-- [] Update Prisma Schema
+- [x] Update Prisma Schema
+  1. add Todo model to the prisma schema
+  2. add the model to the database
+     a. npx prisma db push
+     b. npx prisma studio 1) to look at the database
 - [] Add Email auth provider
 - [] Create tRPC router for Todos
 
