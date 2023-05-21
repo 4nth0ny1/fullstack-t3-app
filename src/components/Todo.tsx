@@ -1,10 +1,12 @@
+import toast from "react-hot-toast";
 import type { Todo } from "../types";
+import { api } from "../utils/api";
 
 type TodoProps = {
   todo: Todo;
 };
 
-export default function Todo({ todo }: TodoProps) {
+export function Todo({ todo }: TodoProps) {
   const { id, text, done } = todo;
   return (
     <div className="flex items-center justify-between gap-2">

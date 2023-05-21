@@ -40,12 +40,22 @@ FrontEnd
   4. use the link in the terminal to view protected route
   5. npx prisma studio > to check if the user recorded were saved in the db
 
-- [] List Todos
+- [x] List Todos
+
   1. create Todos and Todo component
   2. update types.ts file for Todos type
   3. import the Todos type to Todo component
   4. Add markup to the Todo Component
-- [] Create Todos
+
+- [x] Create Todos
+  1. create createTodos.tsx component
+  2. install react-hot-toast
+  3. add Toaster to \_app.tsx file
+  4. add toast validation to the createTodos.tsx
+  5. add the newTodo mutation
+  6. should get a 200 from the network tab on creation
+  7. check the studio it should have todo data
+  8. added useContext to add todo to the list on frontend
 - [] Toggle Todo
 - [] Delete Todo
 - [] Optimistic updates
