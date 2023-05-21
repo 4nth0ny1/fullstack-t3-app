@@ -63,8 +63,11 @@ FrontEnd
   1. added doneMutation to the todo
   2. checked the network tab and the prisma studio and it persists
 
-- [] Delete Todo
-  1.
+- [x] Delete Todo
+
+  1. copy and paste the doneMutation and change it to deleteMutation.
+  2. checked network tab and prisma studio and it worked.
+
 - [] Optimistic updates
 
 ---
