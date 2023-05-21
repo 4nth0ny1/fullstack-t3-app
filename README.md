@@ -7,11 +7,22 @@ Steps
 Backend
 
 - [x] Update Prisma Schema
+
   1. add Todo model to the prisma schema
   2. add the model to the database
      a. npx prisma db push
      b. npx prisma studio 1) to look at the database
-- [] Add Email auth provider
+
+- [x] Add Email auth provider
+
+  1. add EmailProvider to the /server/auth.ts file and replace DiscordProvider
+  2. install nodemailer for EmailProvider
+
+  1) npm install nodemailer
+  2) https://next-auth.js.org/providers/email
+
+  3. added EMAIL_SERVER, EMAIL_FROM, AND EMAIL_API_KEY to .env file
+
 - [] Create tRPC router for Todos
 
 FrontEnd
