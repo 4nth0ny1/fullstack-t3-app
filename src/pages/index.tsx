@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { signIn, signOut, useSession } from "next-auth/react";
-import Todos from "../components/Todos";
+import { Todos } from "../components/Todos";
 import CreateTodo from "../components/CreateTodo";
 
 function Home() {
