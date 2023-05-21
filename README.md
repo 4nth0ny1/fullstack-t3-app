@@ -1,4 +1,4 @@
-Authenticated Todo App
+Authenticated T3 Todo App
 
 Steps
 
@@ -11,19 +11,24 @@ Backend
   1. add Todo model to the prisma schema
   2. add the model to the database
      a. npx prisma db push
-     b. npx prisma studio 1) to look at the database
+     b. npx prisma studio and look at the database
 
 - [x] Add Email auth provider
 
   1. add EmailProvider to the /server/auth.ts file and replace DiscordProvider
   2. install nodemailer for EmailProvider
-
-  1) npm install nodemailer
-  2) https://next-auth.js.org/providers/email
-
+     a. npm install nodemailer
+     b. https://next-auth.js.org/providers/email
   3. added EMAIL_SERVER, EMAIL_FROM, AND EMAIL_API_KEY to .env file
 
-- [] Create tRPC router for Todos
+- [x] Create tRPC router for Todos
+  1. created /server/api/routers/todo.ts
+     a. removed publicProtected code and created a get all todos route
+  2. created /src/types.ts
+  3. import /src/types.ts into /api/routers/todos.ts
+     a. insert into input()
+  4. proceed to create all, create, delete, toggle api routes
+  5. change /server/api/root.ts from exampleRouter to todoRouter
 
 FrontEnd
 
