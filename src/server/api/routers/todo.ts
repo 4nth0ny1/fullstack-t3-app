@@ -14,17 +14,10 @@ export const todoRouter = createTRPCRouter({
             userId: ctx.session.user.id,
         }
     })
-    console.log(todos.map(({id, text, done}) => {
+    return todos.map(({id, text, done}) => {
         ({id, text, done})
-    }))
+    })
     
-    return [{
-        id: 'fake',
-        text: 'fake text',
-        done: false
-    }, {id: 'fake2',
-    text: 'fake2 text',
-    done: true}]
   }),
 
   create: protectedProcedure.input(todoInput).mutation(async ({ ctx, input }) => {
