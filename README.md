@@ -76,6 +76,7 @@ FrontEnd
   4. add optimistic delete on Todo.tsx component
   5. add optimistic update on doneMutation in Todo.tsx component
   6. tested with slow3g and it was very fast which indicates that we are getting optimistic updates and deletes
+  7. adding onSuccess to Todo.tsx, don't test this on slow3g because it doesn't have the optimistic updates. it will be super slow.
 
 ---
 

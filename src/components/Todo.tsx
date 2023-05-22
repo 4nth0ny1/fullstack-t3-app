@@ -36,6 +36,13 @@ export function Todo({ todo }: TodoProps) {
       // Return a context object with the snapshotted value
       return { previousTodos };
     },
+
+    onSuccess: (err, { done }) => {
+      if (done) {
+        toast.success("Todo completed 🎉");
+      }
+    },
+
     onError: (err, newTodo, context) => {
       toast.error(
         `An error occurred when setting todo to ${done ? "done" : "undone"}`
