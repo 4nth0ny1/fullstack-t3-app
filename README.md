@@ -68,7 +68,15 @@ FrontEnd
   1. copy and paste the doneMutation and change it to deleteMutation.
   2. checked network tab and prisma studio and it worked.
 
-- [] Optimistic updates
+- [x] Optimistic updates
+      def: when you don't wait to get something back from the server. we can optimistically update the frontend ahead of the server request from cached results. it will delete instantly for better user experience.
+  1. added optimistic update to CreateTodo function
+  2. tested it by slowing the throttle in dev tools to slow3g to see the placeholder before the data persists
+  3. added the ability to test user experience with TRPC error on /server/api/router/todo.ts and changed the 'placeholder' to newTodo. if you uncomment the TRPC error it will not allow the user to post and the toast will appear. when commented everythign works as expected.
+  4. add optimistic delete on Todo.tsx component
+  5. add optimistic update on doneMutation in Todo.tsx component
+  6. tested with slow3g and it was very fast which indicates that we are getting optimistic updates and deletes
+  7. adding onSuccess to Todo.tsx, don't test this on slow3g because it doesn't have the optimistic updates. it will be super slow.
 
 ---
 
