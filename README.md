@@ -69,6 +69,8 @@ FrontEnd
   2. checked network tab and prisma studio and it worked.
 
 - [] Optimistic updates
+  def: when you don't wait to get something back from the server. we can optimistically update the frontend ahead of the server request from cached results. it will delete instantly for better user experience.
+  1.
 
 ---
 
