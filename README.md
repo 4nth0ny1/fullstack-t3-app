@@ -70,7 +70,10 @@ FrontEnd
 
 - [] Optimistic updates
   def: when you don't wait to get something back from the server. we can optimistically update the frontend ahead of the server request from cached results. it will delete instantly for better user experience.
-  1.
+  1. added optimistic update to CreateTodo function
+  2. tested it by slowing the throttle in dev tools to slow3g to see the placeholder before the data persists
+  3. added the ability to test user experience with TRPC error on /server/api/router/todo.ts and changed the 'placeholder' to newTodo. if you uncomment the TRPC error it will not allow the user to post and the toast will appear. when commented everythign works as expected.
+  4.
 
 ---
 
