@@ -12,12 +12,61 @@ export function Todo({ todo }: TodoProps) {
   const trpc = api.useContext();
 
   const { mutate: doneMutation } = api.todo.toggle.useMutation({
+    onMutate: async ({ id, done }) => {
+      // Cancel any outgoing refetches so they don't overwrite our optimistic update
+      await trpc.todo.all.cancel();
+
+      // Snapshot the previous value
+      const previousTodos = trpc.todo.all.getData();
+
+      // Optimistically update to the new value
+      trpc.todo.all.setData(undefined, (prev) => {
+        if (!prev) return previousTodos;
+        return prev.map((t) => {
+          if (t.id === id) {
+            return {
+              ...t,
+              done,
+            };
+          }
+          return t;
+        });
+      });
+
+      // Return a context object with the snapshotted value
+      return { previousTodos };
+    },
+    onError: (err, newTodo, context) => {
+      toast.error(
+        `An error occurred when setting todo to ${done ? "done" : "undone"}`
+      );
+      trpc.todo.all.setData(undefined, () => context?.previousTodos);
+    },
     onSettled: async () => {
       await trpc.todo.all.invalidate();
     },
   });
 
   const { mutate: deleteMutation } = api.todo.delete.useMutation({
+    onMutate: async (deleteId) => {
+      // to be safe, cancel any outgoing refetches so they don't overwrite our optimistic update
+      await trpc.todo.all.cancel();
+
+      // create snapshot of previous todos
+      const previousTodos = trpc.todo.all.getData();
+
+      // optimistically update to the new value
+      trpc.todo.all.setData(undefined, (prev) => {
+        if (!prev) return previousTodos;
+        return prev.filter((t) => t.id !== deleteId);
+      });
+
+      return { previousTodos };
+    },
+    onError: (err, newTodo, context) => {
+      toast.error("An error occurred when deleting todo");
+      trpc.todo.all.setData(undefined, () => context?.previousTodos);
+    },
     onSettled: async () => {
       await trpc.todo.all.invalidate();
     },
